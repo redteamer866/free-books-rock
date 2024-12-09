@@ -51,9 +51,55 @@
             color: white;
             font-family: 'Courier New', Courier, monospace;
         }
+
+        #pi-form {
+            margin-bottom: 30px;
+        }
+
+        label {
+            display: block;
+            margin: 10px 0 5px;
+        }
+
+        input[type="text"], input[type="email"], textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        input[type="submit"] {
+            background-color: blue;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        input[type="submit"]:hover {
+            background-color: darkblue;
+        }
     </style>
 </head>
 <body>
+    <div id="pi-form">
+        <h1>Enter Your Details</h1>
+        <form id="piForm">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required>
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+
+            <label for="address">Address:</label>
+            <textarea id="address" name="address" rows="3" required></textarea>
+
+            <input type="submit" value="Submit">
+        </form>
+    </div>
+
     <div id="pdf-directory">
         <h1>Textbook PDF Directory</h1>
         <ul>
@@ -79,12 +125,27 @@
         if (fullscreenElement.requestFullscreen) {
             fullscreenElement.requestFullscreen().then(() => {
                 // Show the fullscreen message and hide the rest of the content
+                document.getElementById('pi-form').style.display = 'none';
                 document.getElementById('pdf-directory').style.display = 'none';
                 document.getElementById('fullscreen-message').style.display = 'block';
             }).catch(err => {
                 console.error('Error attempting fullscreen:', err);
             });
         }
+    });
+
+    document.getElementById('piForm').addEventListener('submit', (event) => {
+        event.preventDefault(); // Prevent default form submission
+        const name = document.getElementById('name').value;
+        const email = document.getElementById('email').value;
+        const address = document.getElementById('address').value;
+
+        console.log('Submitted Information:');
+        console.log('Name:', name);
+        console.log('Email:', email);
+        console.log('Address:', address);
+
+        alert('Your information has been submitted!');
     });
 </script>
 </body>
