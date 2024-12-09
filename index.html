@@ -34,44 +34,22 @@
             background: black;
             color: green;
             font-family: monospace;
-            font-size: 16px;
+            font-size: 18px;
             overflow: auto;
             padding: 20px;
             text-align: center;
         }
 
-        #logo {
+        #gameboy-image {
             display: block;
             margin: 20px auto;
-            width: 150px; /* Adjust width as needed */
+            max-width: 200px;
         }
 
-        #login-form {
+        #gameboy-text {
             margin-top: 20px;
-            font-family: Arial, sans-serif;
             color: white;
-            text-align: left;
-        }
-
-        input[type="text"], input[type="email"] {
-            width: 100%;
-            padding: 10px;
-            margin: 10px 0;
-            border: none;
-            border-radius: 5px;
-        }
-
-        button {
-            padding: 10px 20px;
-            background-color: #007bff;
-            color: white;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-        }
-
-        button:hover {
-            background-color: #0056b3;
+            font-family: 'Courier New', Courier, monospace;
         }
     </style>
 </head>
@@ -86,22 +64,12 @@
     </div>
 
     <div id="fullscreen-message">
-        <!-- Logo Placeholder -->
-        <img id="logo" src="https://play-lh.googleusercontent.com/8XCwpfWc9YkehwhrhoID6PGhs5SaSJoocS0oTBA8EsGFGLrj32oIYu5UKsIO7wdU1PQZ" alt="OpenAI Logo">
-        <p>Initializing System...</p>
-        <p>Booting Operator System...</p>
-        <p>OpenAI Secure Boot Sequence v1.0</p>
-        <p>System Locked: User Authentication Required</p>
-
-        <form id="login-form">
-            <label for="username">Username:</label>
-            <input type="text" id="username" name="username" placeholder="Enter your username" required>
-            <label for="email">Email:</label>
-            <input type="email" id="email" name="email" placeholder="Enter your email" required>
-            <label for="address">Address:</label>
-            <input type="text" id="address" name="address" placeholder="Enter your address" required>
-            <button type="submit">Unlock System</button>
-        </form>
+        <img id="gameboy-image" src="https://upload.wikimedia.org/wikipedia/commons/7/76/Nintendo-Game-Boy-Color-FL.jpg" alt="Gameboy Color">
+        <div id="gameboy-text">
+            <p>Welcome to Gameboy Mode!</p>
+            <p>You have entered a world where everything is a game.</p>
+            <p>Press any button to start your journey.</p>
+        </div>
     </div>
 
 <script>
@@ -117,12 +85,6 @@
                 console.error('Error attempting fullscreen:', err);
             });
         }
-    });
-
-    document.getElementById('login-form').addEventListener('submit', (e) => {
-        e.preventDefault();
-        alert('Details submitted. Logging in...');
-        // Simulate login functionality here
     });
 </script>
 </body>
