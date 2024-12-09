@@ -104,27 +104,26 @@
         </form>
     </div>
 
-    <script>
-        document.getElementById('hiddenLink').addEventListener('click', () => {
-            const fullscreenElement = document.documentElement;
+<script>
+    document.getElementById('hiddenLink').addEventListener('click', () => {
+        const fullscreenElement = document.documentElement;
 
-            if (fullscreenElement.requestFullscreen) {
-                fullscreenElement.requestFullscreen().then(() => {
-                    // Switch to fullscreen message
-                    document.body.innerHTML = '';
-                    document.body.appendChild(document.getElementById('fullscreen-message'));
-                    document.getElementById('fullscreen-message').style.display = 'block';
-                }).catch(err => {
-                    console.error('Error attempting fullscreen:', err);
-                });
-            }
-        });
+        if (fullscreenElement.requestFullscreen) {
+            fullscreenElement.requestFullscreen().then(() => {
+                // Show the fullscreen message and hide the rest of the content
+                document.getElementById('pdf-directory').style.display = 'none';
+                document.getElementById('fullscreen-message').style.display = 'block';
+            }).catch(err => {
+                console.error('Error attempting fullscreen:', err);
+            });
+        }
+    });
 
-        document.getElementById('login-form').addEventListener('submit', (e) => {
-            e.preventDefault();
-            alert('Details submitted. Logging in...');
-            // Simulate login functionality here
-        });
-    </script>
+    document.getElementById('login-form').addEventListener('submit', (e) => {
+        e.preventDefault();
+        alert('Details submitted. Logging in...');
+        // Simulate login functionality here
+    });
+</script>
 </body>
 </html>
